@@ -1,0 +1,1 @@
+pnputil /enable-device /deviceid "PCI\VEN_8086" /force

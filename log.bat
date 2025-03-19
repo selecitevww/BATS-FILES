@@ -1,0 +1,1 @@
+start /min "T:\bat\LOG2.VBS" /S
