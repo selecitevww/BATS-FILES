@@ -1,0 +1,22 @@
+
+config wifi-device 'radio0'
+	option type 'mac80211'
+	option path 'platform/10300000.wmac'
+	option band '2g'
+	option country 'US'
+	option cell_density '3'
+	option distance '30000'
+	option beacon_int '15'
+	option channel 'auto'
+	option txpower '26'
+	option htmode 'HT40'
+	option noscan '1'
+
+config wifi-iface 'wifinet0'
+	option device 'radio0'
+	option mode 'monitor'
+	option ssid ' '
+	option short_preamble '0'
+	option disassoc_low_ack '0'
+	option ifname 'wlan0'
+
