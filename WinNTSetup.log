@@ -1,0 +1,40 @@
+Starting Setup
+Selected Source: J:\sources\install.esd, #1
+Source Details: Windows 10 Домашняя  x64 ru-RU (Build 10.0.19041.2965)
+WimGAPI version: 10.0.22621.1 (WinBuild.160101.0800)
+Current System: 22621 x64 WinNTSetup v.5.3.1 x64
+Command Line: "X:\WinNTSetup\WinNTSetup_x64.exe" 
+Boot partition: I:
+	Filesystem:  FAT32
+	GPT Partition style
+	Disk number: 0
+	Partition number: 3
+	Partition Alignment: Align 2048 K
+	Advanced Format Disk: 0
+	Virtual device: 0
+	Mounted VHD: 0
+Regtweaks: 
+Drivers: 
+DriverMode: DISM
+DISMtweaks: 
+Unattend: X:\WinNTSetup\Unattend\Win7-11-Select.xml
+Mode: COMPACT:XPRESS4K
+
+Start applying WIM Image.
+
+Internal WimBootCompress.ini
+
+[PrepopulateList]
+bootstat.dat
+*winload.*
+*winresume.*
+wof.sys
+\Windows\System32\Config\SYSTEM
+\Windows\System32\PlatformManifest\*
+ntoskrnl.exe
+
+Skipping Compact\WimBootCompress.ini
+Apply in XPRESS4K compact mode.
+
+Error: Failed Applying Windows Image!
+Setup aborted!
