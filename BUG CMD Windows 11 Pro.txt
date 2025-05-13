@@ -1,0 +1,26 @@
+Microsoft Windows [Version 10.0.22631.2861]
+(c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+echo a. "ALL BE BACK"
+echo b. "I WILL BE BACK"
+echo c. "I LL BE BACK"
+Y:\Users>cd "\     "
+
+Y:\>cd "\     "
+
+Y:\>cd Users
+
+Y:\Users>cd "\     "
+
+Y:\>cd "\     "
+
+Y:\>cd Users
+
+Y:\Users>cd "\     "
+
+Y:\>
+Y:\Users>cd \     \"
+
+Y:\>cd Users
+
+cd Users && cd "\     \"
+Y:\>
