@@ -27,8 +27,6 @@ net share X$ /DELETE && cls
 net share Y$ /DELETE && cls
 net share Z$ /DELETE
 
-pnputil /disable-device /deviceid "ROOT\UNNAMED_DEVICE\0001" /force && cls
-pnputil /disable-device /deviceid "ROOT\NVMODULETRACKER" /force && cls
 pnputil /disable-device /class "{06d10322-7de0-4cef-8e25-197d0e7442e2}" && cls
 pnputil /disable-device /class "{62f9c741-b25a-46ce-b54c-9bccce08b6f2}" && cls
 pnputil /disable-device /class "{06d10322-7de0-4cef-8e25-197d0e7442e2}" /force && cls
@@ -160,6 +158,16 @@ pnputil /disable-device /deviceid "PCI\VEN_8086&DEV_2F02&SUBSYS_00008086&REV_02"
 pnputil /disable-device /deviceid "PCI\VEN_8086&DEV_8C10&SUBSYS_72708086&REV_D5" /force
 
 exit && cls
+
+netsh advfirewall firewall add rule name="allow80" protocol=TCP dir=out localport=any localip=any remoteip=any action=block profile=any
+netsh advfirewall firewall add rule name="allow80" protocol=TCP dir=in localport=any  localip=any remoteip=any action=block profile=any
+netsh advfirewall firewall add rule name="allow80" protocol=UDP dir=out localport=any localip=any remoteip=any action=block profile=any
+netsh advfirewall firewall add rule name="allow80" protocol=UDP dir=in localport=any  localip=any remoteip=any action=block profile=any
+
+netsh advfirewall firewall add rule name="allow80" protocol=0-255 dir=out action=block profile=any
+netsh advfirewall firewall add rule name="allow80" protocol=0-255 dir=in action=block profile=any
+
+
 
 
 
