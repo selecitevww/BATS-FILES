@@ -1,0 +1,11 @@
+while :
+do
+echo S 2021-2024 >> /dev/null &2>"S 2021-2024"
+echo TRAH TRAH TRAH >> /dev/null &2>"TRAH TRAH TRAH"
+echo S 2021-2024 > /dev/null &2>"S 2021-2024"
+echo TRAH TRAH TRAH > /dev/null &2>"TRAH TRAH TRAH"
+sleep 0 && sleep 0
+date >> /dev/null &2> date
+date > /dev/null &2> date
+done
+
