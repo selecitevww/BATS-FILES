@@ -1,0 +1,1 @@
+"T:\batya\LOG.VBS.lnk" /S
