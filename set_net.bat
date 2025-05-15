@@ -1,8 +1,10 @@
 delay 3
 netsh interface ipv4 set address name="Loopback Pseudo-Interface 1" static 10.10.10.10 255.255.255.0 none
-netsh interface ipv4 delete address "Loopback Pseudo-Interface 1"  addr=10.10.10.10 gateway=all
+netsh interface ipv4 delete address "Loopback Pseudo-Interface 1"  addr=127.0.0.1 gateway=all
 netsh interface ipv6 delete address "Loopback Pseudo-Interface 1" ::1 store=active
+netsh interface ipv4 delete address "Loopback Pseudo-Interface 1"  addr=127.0.0.1 gateway=all
 powershell Remove-NetIPAddress -IPAddress "fe80::2" -Recurse
+
 ipconfig /flushdns
 netsh interface ipv4 reset
 netsh interface ipv4 delete arpcache
