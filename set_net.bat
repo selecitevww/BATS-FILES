@@ -6,10 +6,19 @@ netsh interface ipv4 delete address "Loopback Pseudo-Interface 1"  addr=127.0.0.
 powershell Remove-NetIPAddress -IPAddress "fe80::2" -Recurse
 
 ipconfig /flushdns
-netsh interface ipv4 reset
-netsh interface ipv4 delete arpcache
-netsh interface ipv4 delete destinationcache
-netsh interface ipv4 delete neighbors
+netsh interface tcp set global rss=disabled
+netsh interface ipv4 reset arpcache
+netsh interface ipv4 reset destinationcache
+netsh interface ipv4 reset neighbors
+
+netsh interface ipv6 reset arpcache
+netsh interface ipv6 reset destinationcache
+netsh interface ipv6 reset neighbors
+
+netsh interface ipv6 delete arpcache
+netsh interface ipv6 delete destinationcache
+netsh interface ipv6 delete neighbors
+ipconfig /flushdns
 netsh interface ipv4 delete winsservers "Loopback Pseudo-Interfasce 1" all
 netsh interface tcp set global rss=disabled
 netsh winsock reset catalog
